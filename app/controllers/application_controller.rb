@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 	helper_method :current_user
 
   def new
-    @resource = klass.new 
+    var = klass.to_s.downcase
+    instance_variable_set "@#{var}", klass.new
   end
 
 	private
